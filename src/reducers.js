@@ -23,19 +23,10 @@
 import * as constants from './actions.js';
 
 export default function todoApp(state = {}, action) {
-	switch (action.type) {
-		case constants.SET_VISIBILITY_FILTER:
-			return Object.assign({}, state, {
-                visibilityFilter: visibilityFilter(state.visibilityFilter, action)
-			})
-		case constants.ADD_TODO:
-		case constants.TOGGLE_TODO:
-			return Object.assign({}, state, {
-				todos: todos(state.todos, action)
-			})
-		default:
-			return state
-	}
+    return {
+        visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+        todos: todos(state.todos, action)
+    }
 }
 
 /* Reducer compositions */
@@ -61,7 +52,7 @@ function todos(state = [], action) {
 					}
 				]
 		case constants.TOGGLE_TODO:
-			return state.todos.map((todo, index) => {
+			return state.map((todo, index) => {
 					if (index === action.index) {
 						return Object.assign({}, todo, {
 							completed: !todo.completed
