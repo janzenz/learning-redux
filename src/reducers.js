@@ -26,7 +26,7 @@ export default function todoApp(state = {}, action) {
 	switch (action.type) {
 		case constants.SET_VISIBILITY_FILTER:
 			return Object.assign({}, state, {
-                visibilityFilter: visibilityFilter(state, action)
+                visibilityFilter: visibilityFilter(state.visibilityFilter, action)
 			})
 		case constants.ADD_TODO:
 		case constants.TOGGLE_TODO:
