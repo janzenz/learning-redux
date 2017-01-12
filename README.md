@@ -10,3 +10,21 @@ Actions are payloads of information that send data from the application to the s
 
 ## Reducers
 Action specifies the work to be done while Reducers do the work and mutate the state.
+
+Redux provides a utility called combineReducers() which transforms this:
+
+```
+export default function todoApp(state = {}, action) {
+  return {
+    visibilityFilter: visibilityFilter(state.visibilityFilter, action),
+    todos: todos(state.todos, action)
+  }
+}
+```
+To this:
+```
+const todoApp = combineReducers({
+  visibilityFilter,
+  todos
+})
+```
