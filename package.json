@@ -4,8 +4,8 @@
   "description": "These are my notes learning Redux.",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "watch": "babel src --watch -d lib",
+    "build": "babel src --out-file index.js",
+    "watch": "babel src --watch -d bin",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
