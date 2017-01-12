@@ -20,24 +20,23 @@
 }
 */
 
-import { createStore } from 'redux';
-import { VisibilityFilters } from './actions.js';
+import { addTodo, createStore } from 'redux';
+import * as constants from './actions.js';
 
 const initialState = {
-	visibilityFilter: VisibilityFilters.SHOW_ALL
+	visibilityFilter: constants.VisibilityFilters.SHOW_ALL
 }
 
-function todoApp(state = initialState, action) {
-    console.log(action)
+function todoApp(state = {}, action) {
 	switch (action.type) {
-		case action.SET_VISIBILITY_FILTER:
+		case constants.SET_VISIBILITY_FILTER:
 			return Object.assign({}, state, {
                 visibilityFilter: visibilityFilter(state, action)
 			})
-		case action.ADD_TODO:
-		case action.TOGGLE_TODO:
+		case constants.ADD_TODO:
+		case constants.TOGGLE_TODO:
 			return Object.assign({}, state, {
-				todos: todos(state, action)
+				todos: todos(state.todos, action)
 			})
 		default:
 			return state
@@ -45,30 +44,29 @@ function todoApp(state = initialState, action) {
 }
 
 /* Reducer compositions */
-function visibilityFilter(state = VisibilityFilter.SHOW_ALL, action) {
+function visibilityFilter(state = constants.VisibilityFilters.SHOW_ALL, action) {
     switch (action.type) {
-		case action.VisibilityFilter.SHOW_ALL:
-		case action.VisibilityFilter.SHOW_COMPLETED:
-		case action.VisibilityFilter.SHOW_ACTIVE:
-			return Object.assign({}, state, {
-				visibilityFilter: action.filter
-			})
+		case constants.VisibilityFilters.SHOW_ALL:
+		case constants.VisibilityFilters.SHOW_COMPLETED:
+		case constants.VisibilityFilters.SHOW_ACTIVE:
+			return Object.assign({}, state, action.filter)
 		default:
 			return state
 	}
 }
 
-function todos(state = initialState, action) {
+function todos(state = {}, action) {
 	switch (action.type) {
-		case action.ADD_TODO:
-			return [
-					...state.todos,
+		case constants.ADD_TODO:
+            return Object.assign({}, state, {
+                todos: [
+					...state,
 					{
 						text: action.text,
 						completed: false
 					}
-				]
-		case action.TOGGLE_TODO:
+				]})
+		case constants.TOGGLE_TODO:
 			return state.todos.map((todo, index) => {
 					if (index === action.index) {
 						return Object.assign({}, todo, {
@@ -82,7 +80,4 @@ function todos(state = initialState, action) {
 			return state
 	}
 }
-
-let store = createStore(todoApp)
-console.log(store.getState())
 
