@@ -20,14 +20,9 @@
 }
 */
 
-import { addTodo, createStore } from 'redux';
 import * as constants from './actions.js';
 
-const initialState = {
-	visibilityFilter: constants.VisibilityFilters.SHOW_ALL
-}
-
-function todoApp(state = {}, action) {
+export default function todoApp(state = {}, action) {
 	switch (action.type) {
 		case constants.SET_VISIBILITY_FILTER:
 			return Object.assign({}, state, {
@@ -55,17 +50,16 @@ function visibilityFilter(state = constants.VisibilityFilters.SHOW_ALL, action) 
 	}
 }
 
-function todos(state = {}, action) {
+function todos(state = [], action) {
 	switch (action.type) {
 		case constants.ADD_TODO:
-            return Object.assign({}, state, {
-                todos: [
-					...state,
+            return [
+				        ...state,
 					{
 						text: action.text,
 						completed: false
 					}
-				]})
+				]
 		case constants.TOGGLE_TODO:
 			return state.todos.map((todo, index) => {
 					if (index === action.index) {
