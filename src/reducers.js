@@ -20,14 +20,13 @@
 }
 */
 
+import { combineReducers } from 'redux'
 import * as constants from './actions.js';
 
-export default function todoApp(state = {}, action) {
-    return {
-        visibilityFilter: visibilityFilter(state.visibilityFilter, action),
-        todos: todos(state.todos, action)
-    }
-}
+const todoApp = combineReducers({
+    visibilityFilter,
+    todos
+})
 
 /* Reducer compositions */
 function visibilityFilter(state = constants.VisibilityFilters.SHOW_ALL, action) {
