@@ -28,13 +28,22 @@ const todoApp = combineReducers({
     todos
 })
 
+/*
+const todoApp = (state = {}, action) => {
+    return {
+        todo: todos(state.todo, action),
+        visibilityFilter: visibilityFilter(state.visibilityFilter, action)
+    }
+}
+*/
+
+export default todoApp
+
 /* Reducer compositions */
 function visibilityFilter(state = constants.VisibilityFilters.SHOW_ALL, action) {
     switch (action.type) {
-		case constants.VisibilityFilters.SHOW_ALL:
-		case constants.VisibilityFilters.SHOW_COMPLETED:
-		case constants.VisibilityFilters.SHOW_ACTIVE:
-			return Object.assign({}, state, action.filter)
+		case constants.SET_VISIBILITY_FILTER:
+            return action.filter
 		default:
 			return state
 	}
