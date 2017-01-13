@@ -1,5 +1,9 @@
 These are my notes learning Redux.
 
+## Tips
+- Start with one file for your app to easily identify the relationships of the Actions > Reducers > Store
+- If you need to, spell out the variables, don't neglect the tedium of learning what's inside each abstraction.
+
 Here's a quick diagram of how a Redux workflow:
 `store.dispatch() [Actions (Action Creators)] -> (Old) Store -> Reducers (Entire State) -> (New) Store -> Components -> (Repeat)`
 
