@@ -32,7 +32,7 @@ const todoApp = combineReducers({
 /*
 const todoApp = (state = {}, action) => {
     return {
-        todo: todos(state.todo, action),
+        todos: todos(state.todos, action),
         visibilityFilter: visibilityFilter(state.visibilityFilter, action)
     }
 }
