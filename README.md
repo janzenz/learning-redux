@@ -1,4 +1,4 @@
-These are my notes learning Redux.
+These are my notes learning Redux, some phrases are directly copied from the Redux documentation but I will try to update this next time and make it more personalized. #note-to-self
 
 ## Tips
 - Start with one file for your app to easily identify the relationships of the Actions > Reducers > Store
