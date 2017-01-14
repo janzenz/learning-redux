@@ -28,6 +28,7 @@ const todoApp = combineReducers({
     todos
 })
 
+/* This code block is literrally the `combineReducers` implementation */
 /*
 const todoApp = (state = {}, action) => {
     return {
