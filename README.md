@@ -37,10 +37,13 @@ The output of a Reducer is just a Javascript Object that consists the mutated st
 ## Store
 Notice the singular word Store unlike the Actions & Reducers. In Redux there should only be ONE Store to manage your Application State, it is a ONE source of truth which I think is the gist of Redux. This is important in order to understand your Application State easily and so you can have an overview of the current State of your Application. A Store is just a container of your Application's State (both UI and Data).
 
-To initialize the Store we can do:  
+To initialize the Store we can do:
+
 ```
 const initialState = {
-	dummy: 'This does not matter, this will be overwritten by what is returned by the root reducer or todosReducer in this case.'
+	dummy: 'This does not matter, this will be overwritten by
+			what is returned by the root reducer or todosReducer 
+			in this case.'
 }
 
 const store = createStore(todosReducer, initialState)
