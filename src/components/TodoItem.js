@@ -6,8 +6,15 @@ class TodoItem extends Component {
     }
 
     render() {
-        const { id, text } = this.props;
-        return <li onClick={this._onClick}>
+        const { id, text, completed } = this.props;
+        return <li
+                onClick={this._onClick}
+                style={{
+                    textDecoration: completed ?
+                        'line-through' :
+                        'none'
+                }}
+            >
                 {text}
             </li>
     }

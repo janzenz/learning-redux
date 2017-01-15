@@ -24,11 +24,12 @@ export const VisibilityFilters = {
 /*
  * Action creators
  */
+let nextId = 0
 export function addTodo(text) {
     // Generate id here
     // Maximum of 999 items
-    const id = Math.floor(Math.random() * 999)
-    return { type: ADD_TODO, text, id }
+    nextId++
+    return { type: ADD_TODO, text, id: nextId }
 }
 
 export function toggleTodo(index) {
