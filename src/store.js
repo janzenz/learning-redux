@@ -2,24 +2,24 @@ import { createStore } from 'redux'
 import * as actions from './actions'
 import todos from './reducers'
 
-const initialState = {
-    dummy: 'This doesnt matter, this will be overwritten by the reducer.'
-}
-const store = createStore(todos, initialState)
+// const initialState = {
+//     dummy: 'This doesnt matter, this will be overwritten by the reducer.'
+// }
+const store = createStore(todos, {})
 
 // Let's get the initial state
-console.log('Initial State: ', store.getState())
+// console.log('Initial State: ', store.getState())
 
 // Every time the state changes, let's log it
 // Note that `subscribe()` returns a function for unregistering the listeners
 
 const unsubcribeSiri = store.subscribe(() => {
-    console.log('This is our current State sir!')
+    // console.log('This is our current State sir!')
 })
 
 // We can also have multiple subscription
 const unsubscribeLogging = store.subscribe(() => {
-    console.log(store.getState())
+    // console.log(store.getState())
 })
 
 
@@ -33,3 +33,4 @@ store.dispatch(actions.addTodo('Learn about store'))
 unsubcribeSiri()
 unsubscribeLogging()
 
+export default store

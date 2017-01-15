@@ -56,6 +56,7 @@ function todos(state = [], action) {
             return [
 				        ...state,
 					{
+						id: Math.random(),
 						text: action.text,
 						completed: false
 					}
