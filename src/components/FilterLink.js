@@ -13,4 +13,8 @@ class FilterLink extends Component {
     }
 }
 
+FilterLink.propType = {
+	filter: PropTypes.string.isRequired
+}
+
 export default FilterLink

@@ -30,7 +30,7 @@ store.dispatch(actions.addTodo('Learn about store'))
 
 // Stop listening to subscriptions
 // The order doesn't matter
-unsubcribeSiri()
-unsubscribeLogging()
+//unsubcribeSiri()
+//unsubscribeLogging()
 
 export default store
