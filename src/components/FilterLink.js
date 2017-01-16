@@ -1,15 +1,14 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 
 class FilterLink extends Component {
-    _onClick = () => {
-        this.props.handleFilter(this.props.filter)
-    }
-
     render() {
-        return <a 
-            href="#" 
-            onClick={this._onClick}
-        >{this.props.children}</a>
+        const { filter, children } = this.props
+        return <Link
+                    to={filter === 'all' ? '' : filter}
+                >
+                    {children}
+                </Link>
     }
 }
 

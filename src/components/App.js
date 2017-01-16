@@ -3,16 +3,14 @@ import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 import Footer from './Footer'
 
-class App extends Component {
-    render() {
-        return <div>
-            <AddTodo />
-            <TodoList
-                {...this.props.todos}
-            />
-            <Footer />
-        </div>
-    }
+const App = ({ todos, params }) => {
+    return <div>
+        <AddTodo />
+        <TodoList
+            filter={params.filter || 'all'}
+        />
+        <Footer />
+    </div>
 }
 
 export default App

@@ -36,7 +36,13 @@ var config = {
             }
         ]
     },
-    devtool: "cheap-eval-source-map"
+    devtool: "cheap-eval-source-map",
+    devServer: {
+        contentBase: path.join(__dirname, "public"),
+        compress: true,
+        port: 3000,
+        historyApiFallback: true
+    }
 }
 
 module.exports = config

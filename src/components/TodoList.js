@@ -30,8 +30,8 @@ TodoList.propType = {
     }).isRequired)
 }
 
-const calculateTodos = (state) => {
-    switch(state.visibilityFilter) {
+const calculateTodos = (state, filter) => {
+    switch(filter) {
         case actions.VisibilityFilters.SHOW_COMPLETED:
             return state.todos.filter(t => t.completed)
         case actions.VisibilityFilters.SHOW_ACTIVE:
@@ -50,9 +50,9 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        todos: calculateTodos(state)
+        todos: calculateTodos(state, ownProps.filter)
     }
 }
 
